@@ -1,0 +1,28 @@
+#table_length {
+    padding-left: 15px;
+    width: 30%;
+    float: left;
+}
+
+#table_length select {
+    width: 40%;
+    display: inline-block;
+}
+
+#table_filter {
+    width: 70%;
+    float:right;
+    position: relative
+}
+
+#table_filter label {
+    line-height: 45px;
+    margin-left: -6%;
+}
+
+#table_filter input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-left: 15%;
+}

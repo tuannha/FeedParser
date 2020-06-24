@@ -26,7 +26,9 @@ class BaseModelListView(ListModelView, ListView):
         config = super().get_datatable_config()
         config['ajax']['url'] = self.request.get_full_path()
         config['bFilter'] = self.ajax_searchable
-
+        config['aLengthMenu'] = [[10, 25, 50, 100], [10, 25, 50, 100]]
+        config['bLengthChange'] = True
+        config['bAutoWidth'] = False
         return config
 
     def get_object_list(self):

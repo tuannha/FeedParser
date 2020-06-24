@@ -1,10 +1,19 @@
-from django.conf.urls import url, include
+from django.urls import path, include
+from django.views import generic
 
 
-namespace = 'feed'
+app_name = 'feed'
 urlpatterns = (
+    path(
+        '',
+        generic.RedirectView.as_view(
+            url='/feed/articles/', permanent=False
+        ),
+        name="index"
+     ),
+
     # articles
-    url(
-        r'^articles/', include('apps.feed.urls.article')
+    path(
+        r'articles/', include('apps.feed.urls.article')
     ),
 )

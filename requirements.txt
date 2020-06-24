@@ -1,0 +1,7 @@
+Django==2.2
+
+# feed parser
+feedparser==5.2.1
+
+# dateutil
+python-dateutil==2.8.1

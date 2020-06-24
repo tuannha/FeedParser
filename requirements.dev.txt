@@ -1,0 +1,26 @@
+# Django extensions
+django-extensions==2.0.7
+ipython==6.3.1
+
+# Style and Coverage
+coverage==4.1
+flake8==3.7.7
+
+# Tests
+fake-factory==0.7.4
+mock==1.0.1
+factory-boy==2.7.0
+django-nose==1.4.5
+tblib==1.3.2
+
+# Hooks
+Fabric3==1.14.post1
+
+# Model Generator
+pydotplus==2.0.2
+
+# Debug toolbar
+django-debug-toolbar==1.9.1
+
+# freezegun
+freezegun==0.3.11

@@ -1,0 +1,25 @@
+[run]
+concurrency = multiprocessing
+plugins =
+    django_coverage_plugin
+omit =
+    *tests*
+    *migration*
+    *scripts*
+    *settings*
+    *vendors*
+    *hooks*
+include =
+    *apps*
+    *feedreader*
+    *libs*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __unicode__
+    def __repr__
+    if __name__ == .__main__.:
+
+[html]
+title = FeedReader Coverage Report

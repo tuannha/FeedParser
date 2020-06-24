@@ -18,7 +18,7 @@ CHECKS = [
     {
         'output': 'Running flake8...',
         'command': 'flake8 %s',
-        'match_files': ['.*\.py$'],
+        'match_files': ['.*\.py$'],  # NOQA
         'ignore_files': [
             '.*settings/.*', '.*manage.py', '.*migrations.*', '.*venv/*'
         ],
@@ -28,14 +28,14 @@ CHECKS = [
     {
         'output': 'Running unit tests...',
         'function': hook_test.run_test,
-        'match_files': ['^erp/*'],
+        'match_files': ['./*'],
         'print_filename': False,
         'is_mandatory': True,
     },
     {
         'output': 'Check coverage...',
         'function': coverage.check_coverage,
-        'match_files': ['^erp/*'],
+        'match_files': ['./*'],
         'print_filename': False,
         'is_mandatory': True,
     }
@@ -59,6 +59,7 @@ def main():
             step = StepChecker(check_options)
             step.check(commit_files)
             print("========================================================================")  # NOQA
+
 
 if __name__ == '__main__':
     main()

@@ -4,7 +4,7 @@ from hooks import utils
 
 
 def remove_all_pyc_files():
-    command = "find erp -name '*.pyc' | xargs rm -rf"
+    command = "find . -name '*.pyc' | xargs rm -rf"
     utils.run_process_asynchronous(command)
 
 
@@ -14,8 +14,7 @@ def run_test(options, files):
         command = "COVERAGE_PROCESS_START=./.coveragerc \
             $VIRTUAL_ENV/bin/coverage run --parallel-mode \
             --concurrency=multiprocessing --rcfile=./.coveragerc \
-            erp/manage.py test tests.unit --failfast --parallel \
-            --settings=erp.tests_settings"
+            manage.py test tests.unit --failfast --parallel"
         out = utils.run_process_asynchronous(command)
 
         run_post_processing()

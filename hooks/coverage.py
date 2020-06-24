@@ -1,9 +1,11 @@
+# flake8: noqa
+
 import sys
 from hooks import utils
 
 
 class CoverageChecker(object):
-    COVERAGE_FILE = '.erp.coverage'
+    COVERAGE_FILE = '.feedreader.coverage'
 
     def __init__(self, options, files):
         self.options = options
@@ -31,14 +33,14 @@ class CoverageChecker(object):
             self.coverage_number = int(
                 lines[-1].split()[-1][:-1].decode('utf-8')
             )
-        except:
+        except Exception:
             self.coverage_number = 0
 
     def _get_last_coverage_number(self):
         try:
             with open(self.COVERAGE_FILE) as f:
                 self.last_coverage_number = int(f.readlines()[0])
-        except:
+        except Exception:
             self.last_coverage_number = 0
 
     def _save_coverage_number(self):
@@ -47,6 +49,10 @@ class CoverageChecker(object):
 
     def _print_coverage_for_files(self):
         for file_path in self.files:
+            print(file_path)
+            if '.' not in file_path:
+                continue
+
             file_without_extension = file_path[:file_path.rindex('.')]
 
             if file_without_extension in self.files_coverage:

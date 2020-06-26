@@ -145,7 +145,7 @@ class TestFetchArticle(TestCase):
             category='term',
             comments='comments',
             guid='id',
-            pub_date=parser.parse('2014-02-05 09:00:00+00:00')
+            pub_date=parser.parse('2014-02-05 09:00:00-05:00')
         )
         entries = [
             {
@@ -154,7 +154,7 @@ class TestFetchArticle(TestCase):
                 'link': 'link',
                 'tags': [{'term': 'term'}],
                 'comments': 'comments',
-                'published': '2014-02-05 09:00:00+00:00',
+                'published': '2014-02-05 09:00:00-05:00',
                 'id': 'id'
             }
         ]

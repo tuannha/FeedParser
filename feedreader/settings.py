@@ -171,3 +171,5 @@ LOGGING = {
         },
     },
 }
+
+TEST_RUNNER = "libs.test.NoLoggingTestRunner"

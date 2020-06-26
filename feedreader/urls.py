@@ -19,9 +19,16 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from django.views import generic
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(
+        r'', generic.RedirectView.as_view(
+            url='/feed/articles/', permanent=False
+        ),
+        name='home'
+    ),
     path('', include(frontend_urls)),
 ]
 

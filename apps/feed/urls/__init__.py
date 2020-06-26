@@ -9,7 +9,7 @@ urlpatterns = (
         generic.RedirectView.as_view(
             url='/feed/articles/', permanent=False
         ),
-        name="index"
+        name='index'
      ),
 
     # articles

@@ -1,7 +1,5 @@
 [run]
 concurrency = multiprocessing
-plugins =
-    django_coverage_plugin
 omit =
     *tests*
     *migration*

@@ -22,7 +22,11 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        sources = options.get('sources').split(',')
+        sources = options.get('sources')
+        if not sources:
+            return
+
+        sources = sources.split(',')
         log_file = options.get('log', None)
         if log_file:
             for handler in logging.root.handlers:
@@ -76,7 +80,6 @@ class Command(BaseCommand):
             )
             pub_date = None
         guid = entry.get('id', None)
-
         return Article.objects.get_or_create(
             title=title, description=description, link=link,
             category=category, comments=comments, guid=guid,

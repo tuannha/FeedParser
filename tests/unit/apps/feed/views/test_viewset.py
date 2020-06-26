@@ -23,7 +23,9 @@ class TestArticleViewset(TestCase):
         super().setUp()
 
         ArticleFactory.create_batch(10)
-        self.article = ArticleFactory.create()
+        self.article = ArticleFactory.create(
+            category='test_category'
+        )
 
         self.list_url = reverse('feed:article_list')
         self.add_url = reverse('feed:article_add')
@@ -55,6 +57,15 @@ class TestArticleViewset(TestCase):
 
         self.assertEqual(200, response.status_code)
         self.assertEqual(11, len(response.context['object_list']))
+        self.assertEqual(self.article, response.context['object_list'][0])
+
+    def test_get_list_with_category_filter_success(self):
+        self.client.force_login(self.user)
+        url = self.list_url + '?datatable-search[value]=test_category'
+        response = self.client.get(url)
+
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(1, len(response.context['object_list']))
         self.assertEqual(self.article, response.context['object_list'][0])
 
     def test_get_list_failed_by_unauthorized_user(self):
